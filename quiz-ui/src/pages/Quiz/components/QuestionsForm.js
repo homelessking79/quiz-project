@@ -6,7 +6,7 @@ import { formatTime } from '../../../components/Util';
 import Typography from '@mui/joy/Typography';
 import Button from '@mui/joy/Button';
 import Stack from '@mui/joy/Stack';
-import Card from '@mui/joy/Card';
+// import Card from '@mui/joy/Card';
 import CircularProgress from '@mui/joy/CircularProgress';
 
 const QuestionsForm = ({ onHandleSubmit }) => {
@@ -66,18 +66,18 @@ const QuestionsForm = ({ onHandleSubmit }) => {
     setRotateY(0);
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     setIsPageChanged(true);
-    await new Promise(resolve => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 1400));
     setIsPageChanged(false);
-  };
+  }
 
   async function handlePreviousQuestion() {
     setX(-200);
     setRotateY(0);
     setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
     setIsPageChanged(true);
-    await new Promise(resolve => setTimeout(resolve, 1400));
+    await new Promise((resolve) => setTimeout(resolve, 1400));
     setIsPageChanged(false);
-  };
+  }
 
   const handleAnswerChange = (questionId, answer, answerIndex) => {
     setAnswers((prevAnswers) => ({
@@ -120,17 +120,15 @@ const QuestionsForm = ({ onHandleSubmit }) => {
       </Stack>
       <form onSubmit={handleSubmit}>
         {questionsLoaded && questions.length > 0 && (
-          <Card style={{ border: 'none', boxShadow: 'none', height: 420 }}>
-            <Question
-              question={questions[currentQuestionIndex]}
-              onSelectedOption={(answer, answerIndex) =>
-                handleAnswerChange(questions[currentQuestionIndex].id, answer, answerIndex)
-              }
-              answer={answers} // Pass the answer as a prop
-              x={x}
-              rotateY={rotateY}
-            />
-          </Card>
+          <Question
+            question={questions[currentQuestionIndex]}
+            onSelectedOption={(answer, answerIndex) =>
+              handleAnswerChange(questions[currentQuestionIndex].id, answer, answerIndex)
+            }
+            answer={answers} // Pass the answer as a prop
+            x={x}
+            rotateY={rotateY}
+          />
         )}
         <Stack sx={{ display: 'flex', justifyContent: 'center' }} direction="row" spacing={8}>
           <Button

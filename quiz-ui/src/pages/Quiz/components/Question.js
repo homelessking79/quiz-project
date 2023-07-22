@@ -1,16 +1,18 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
+import './Question.css';
+import CardOverflow from '@mui/joy/CardOverflow';
+import AspectRatio from '@mui/joy/AspectRatio';
 import Radio from '@mui/joy/Radio';
 import RadioGroup from '@mui/joy/RadioGroup';
-import FormLabel from '@mui/material/FormLabel';
-import './Question.css';
-import inspiredNt_logo from '../../../components/Logo/inspiredNt_logo.png';
-import { Paper } from '@mui/material';
 import List from '@mui/joy/List';
+import Sheet from '@mui/joy/Sheet';
 import ListItem from '@mui/joy/ListItem';
 import Card from '@mui/joy/Card';
-import CardContent from '@mui/joy/CardContent';
+import Box from '@mui/joy/Box';
+// import CardContent from '@mui/joy/CardContent';
+import Typography from '@mui/joy/Typography';
 
 export default function Question({ question, onSelectedOption, answer, x, rotateY }) {
   const handleChange = (event) => {
@@ -21,7 +23,7 @@ export default function Question({ question, onSelectedOption, answer, x, rotate
 
   // console.log(answer);
   return (
-    <Paper elevation={0}>
+    <Sheet variant="plain">
       <AnimatePresence mode="wait">
         <motion.div
           key={question.id} // Use a unique key for each question
@@ -33,20 +35,28 @@ export default function Question({ question, onSelectedOption, answer, x, rotate
             ease: [0.4, 0, 0.2, 1] // Custom easing function for smoother motion
           }}>
           <Card variant="outlined" sx={{ width: 320 }}>
-            <div className="question-image">
-              <img src={inspiredNt_logo} alt="Logo" className="question-image" />
-            </div>
-            <FormLabel className="question-label">{question.question}</FormLabel>
-            <CardContent
-              orientation="horizontal"
-              sx={{ display: 'flex', justifyContent: 'center' }}>
+            <CardOverflow>
+              <AspectRatio ratio="2">
+                <img
+                  src="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318"
+                  srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
+                  loading="lazy"
+                  alt=""
+                />
+              </AspectRatio>
+            </CardOverflow>
+            <Box
+              orientation="vertical"
+              sx={{ flexWrap: 'wrap', display: 'flex', justifyContent: 'center' }}>
+              <Typography level="body1">{question.question} </Typography>
               <RadioGroup value={`${answer[question.id]}` ?? ' '} onChange={handleChange}>
                 <List
+                  // variant="outlined"
                   sx={{
                     minWidth: 240,
-                    '--List-gap': '0.5rem',
-                    '--ListItem-paddingY': '1rem',
-                    '--ListItem-radius': '20px'
+                    flexWrap: 'wrap',
+                    display: 'flex',
+                    justifyContent: 'center'
                   }}>
                   {question?.options.map((q, i) => (
                     <ListItem
@@ -73,11 +83,11 @@ export default function Question({ question, onSelectedOption, answer, x, rotate
                   ))}
                 </List>
               </RadioGroup>
-            </CardContent>
+            </Box>
           </Card>
         </motion.div>
       </AnimatePresence>
-    </Paper>
+    </Sheet>
   );
 }
 
