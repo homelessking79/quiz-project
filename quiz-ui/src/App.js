@@ -5,6 +5,7 @@ import { Result } from './pages/Result';
 import { NavBar } from './components/NavBar';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { Leaderboard } from './pages/Leaderboard';
+import Footer from './components/Footer';
 
 export const App = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ export const App = () => {
         <Route path="/Leaderboard" element={<Leaderboard />} />
         <Route path="/Result" element={<Result />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
