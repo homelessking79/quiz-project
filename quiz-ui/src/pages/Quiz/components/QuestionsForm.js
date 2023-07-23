@@ -48,7 +48,7 @@ const QuestionsForm = ({ onHandleSubmit }) => {
         setTimeRemaining((prevTime) => {
           if (prevTime === 1) {
             clearInterval(timerId);
-            onHandleSubmit(0, answers);
+            onHandleSubmit(0, answers, questions);
           }
           return prevTime - 1;
         });
@@ -96,7 +96,7 @@ const QuestionsForm = ({ onHandleSubmit }) => {
 
     // Submit answers to the server or perform any necessary actions
     if (onHandleSubmit) {
-      onHandleSubmit(timeRemaining, answersIndex);
+      onHandleSubmit(timeRemaining, answersIndex, questions);
     }
   };
 

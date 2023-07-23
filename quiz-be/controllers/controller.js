@@ -67,6 +67,7 @@ async function calculatePoint(answers, time) {
   let trueCount = 0;
   const q = await Questions.find();
   const arrayResult= q[0]?.answers;
+  const systemAnswers = {};
 
   Object.keys(answers).forEach((questionId, index) => {
     const userAnswer = parseInt(answers[questionId], 10);
@@ -75,8 +76,12 @@ async function calculatePoint(answers, time) {
     if (userAnswer === correctAnswer) {
       trueCount++;
     }
+
+    systemAnswers[questionId] = correctAnswer;
   })
-  return trueCount * time;
+
+  const points = trueCount * time;
+  return { points, systemAnswers };
 }
 
 async function calculateRank(points, time, username) {
@@ -109,7 +114,7 @@ export async function storeResult(req, res) {
   try {
     if (!req?.body?.username && !req?.body?.university && !req?.body?.answers) throw new Error('Data not valid ...');
 
-    const points = await calculatePoint(req.body.answers, req.body.time);
+    const { points, systemAnswers} = await calculatePoint(req.body.answers, req.body.time);
 
     const data = {
       username: req?.body?.username,
@@ -119,6 +124,7 @@ export async function storeResult(req, res) {
       points: points,
       achieved: 'Good',
       time: req?.body?.time,
+      systemAnswers: systemAnswers,
       createdAt: Date.now(),
       updatedAt: Date.now(),
     };

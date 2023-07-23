@@ -7,8 +7,6 @@ import Button from '@mui/joy/Button';
 import Select from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
 import Box from '@mui/material/Box';
-// import InputLabel from '@mui/material/InputLabel';
-// import FormControl from '@mui/joy/FormControl';
 import inspiredNt_logo_trans from '../../components/Logo/inspiredNt_logo_trans.png';
 import styles from './Quiz.module.scss';
 
@@ -42,7 +40,7 @@ const Quiz = () => {
     }
   };
 
-  const onHandleSubmit = (timeRemaining, answers) => {
+  const onHandleSubmit = (timeRemaining, answers, questions) => {
     const data = {
       username: name,
       university: university,
@@ -61,7 +59,7 @@ const Quiz = () => {
           (data) => data
         );
         // Redirect to result page
-        navigate('/Result', { state: userResult });
+        navigate('/Result', { state: { userResult, questions } });
       } catch (error) {
         console.error('Error post result:', error);
       }
