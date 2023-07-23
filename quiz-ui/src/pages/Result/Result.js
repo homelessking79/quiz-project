@@ -5,19 +5,12 @@ import { useLocation } from 'react-router-dom';
 import './Result.css';
 import Box from '@mui/material/Box';
 import styles from './Result.module.scss';
-import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { useNavigate } from 'react-router-dom';
 
 const Result = () => {
   const location = useLocation();
   const result = location.state.userResult;
   const questions = location.state.questions;
-  const navigate = useNavigate();
-
-  const handleGoToReview = () => {
-    navigate('/Review', { state: { result, questions } });
-  };
 
   return (
     <Box
@@ -34,10 +27,9 @@ const Result = () => {
           time={result?.data?.time}
           score={result?.data?.points}
           rank={result?.rank}
+          result={result}
+          questions={questions}
         />
-        <Button variant="contained" color="warning" onClick={handleGoToReview}>
-          Review Answer
-        </Button>
       </Stack>
     </Box>
   );

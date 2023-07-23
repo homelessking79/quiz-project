@@ -16,7 +16,7 @@ import Button from '@mui/material/Button';
 import { Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const CongratCard = ({ name, school, time, score, rank }) => {
+const CongratCard = ({ name, school, time, score, rank, result, questions }) => {
   const [showComponent, setShowComponent] = useState(false);
 
   const navigate = useNavigate();
@@ -30,6 +30,10 @@ const CongratCard = ({ name, school, time, score, rank }) => {
       clearTimeout(timeoutId);
     };
   }, []);
+
+  const handleGoToReview = () => {
+    navigate('/Review', { state: { result, questions } });
+  };
 
   const handleRetry = () => {
     navigate('/Quiz');
@@ -120,6 +124,9 @@ const CongratCard = ({ name, school, time, score, rank }) => {
           Go to Leaderboard
         </Button>
       </Stack>
+      <Button variant="contained" color="warning" onClick={handleGoToReview}>
+        Review Answer
+      </Button>
     </>
   );
 };
@@ -129,7 +136,9 @@ CongratCard.propTypes = {
   school: PropTypes.string.isRequired,
   time: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
-  rank: PropTypes.number.isRequired
+  rank: PropTypes.number.isRequired,
+  result: PropTypes.object.isRequired,
+  questions: PropTypes.array.isRequired
 };
 
 export default CongratCard;
