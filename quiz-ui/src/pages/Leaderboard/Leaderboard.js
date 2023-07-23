@@ -1,13 +1,14 @@
 import React from 'react';
 import LeaderboardTable from './components/LeaderboardTable';
 import styles from './Leaderboard.module.scss';
+import Sheet from '@mui/joy/Sheet';
 
 const Leaderboard = () => {
   return (
-    <div className={styles.home}>
+    <Sheet className={styles.home}>
       <h3 className={styles.mainTitle}>LEADERBOARD</h3>
       <LeaderboardTable />
-    </div>
+    </Sheet>
   );
 };
 
