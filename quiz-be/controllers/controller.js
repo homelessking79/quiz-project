@@ -71,7 +71,7 @@ async function calculatePoint(answers, time) {
 
   Object.keys(answers).forEach((questionId, index) => {
     const userAnswer = parseInt(answers[questionId], 10);
-    const correctAnswer = arrayResult[index];
+    const correctAnswer = arrayResult[questionId-1];
 
     if (userAnswer === correctAnswer) {
       trueCount++;
