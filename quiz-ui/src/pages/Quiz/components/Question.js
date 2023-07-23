@@ -10,8 +10,8 @@ import List from '@mui/joy/List';
 import Sheet from '@mui/joy/Sheet';
 import ListItem from '@mui/joy/ListItem';
 import Card from '@mui/joy/Card';
-import Box from '@mui/joy/Box';
-// import CardContent from '@mui/joy/CardContent';
+// import Box from '@mui/joy/Box';
+import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
 
 export default function Question({ question, onSelectedOption, answer, x, rotateY }) {
@@ -34,7 +34,7 @@ export default function Question({ question, onSelectedOption, answer, x, rotate
             duration: 1,
             ease: [0.4, 0, 0.2, 1] // Custom easing function for smoother motion
           }}>
-          <Card variant="outlined" sx={{ width: 320 }}>
+          <Card variant="outlined" sx={{ width: 350, height: 'auto' }}>
             <CardOverflow>
               <AspectRatio ratio="2">
                 <img
@@ -45,19 +45,13 @@ export default function Question({ question, onSelectedOption, answer, x, rotate
                 />
               </AspectRatio>
             </CardOverflow>
-            <Box
-              orientation="vertical"
-              sx={{ flexWrap: 'wrap', display: 'flex', justifyContent: 'center' }}>
+            <CardContent sx={{ alignItems: 'center', textAlign: 'center' }} orientation="veritcal">
               <Typography level="body1">{question.question} </Typography>
-              <RadioGroup value={`${answer[question.id]}` ?? ' '} onChange={handleChange}>
-                <List
-                  // variant="outlined"
-                  sx={{
-                    minWidth: 240,
-                    flexWrap: 'wrap',
-                    display: 'flex',
-                    justifyContent: 'center'
-                  }}>
+              <RadioGroup
+                sx={{ maxWidth: 260, height: 'auto', minWidth: 200 }}
+                value={`${answer[question.id]}` ?? ' '}
+                onChange={handleChange}>
+                <List>
                   {question?.options.map((q, i) => (
                     <ListItem
                       variant="outlined"
@@ -83,7 +77,7 @@ export default function Question({ question, onSelectedOption, answer, x, rotate
                   ))}
                 </List>
               </RadioGroup>
-            </Box>
+            </CardContent>
           </Card>
         </motion.div>
       </AnimatePresence>

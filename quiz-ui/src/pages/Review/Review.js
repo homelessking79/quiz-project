@@ -5,6 +5,7 @@ import Question from './components/Question';
 import Button from '@mui/joy/Button';
 import Stack from '@mui/joy/Stack';
 import Box from '@mui/material/Box';
+import Typography from '@mui/joy/Typography';
 import styles from './Review.module.scss';
 
 const Review = () => {
@@ -17,9 +18,9 @@ const Review = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isPageChanged, setIsPageChanged] = useState(false);
 
-  console.log(result);
-  console.log(userAnswers);
-  console.log(systemAnswers);
+  // console.log(result);
+  // console.log(userAnswers);
+  // console.log(systemAnswers);
 
   async function handleNextQuestion() {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
@@ -43,6 +44,14 @@ const Review = () => {
       alignItems="center"
       justifyContent="center">
       <div className="quiz-container">
+        <Stack direction="row" spacing={16}>
+          <Typography textColor="#FFA500" level="h5" noWrap={false} variant="plain">
+            Review Question
+          </Typography>
+          <Typography color="neutral" level="h6" noWrap={false} variant="plain">
+            {currentQuestionIndex + 1} / {questions.length}
+          </Typography>
+        </Stack>
         {questions.length > 0 && (
           <Question
             question={questions[currentQuestionIndex]}
