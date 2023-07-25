@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getServerData } from '../../../helper/helper';
@@ -7,7 +8,9 @@ import Typography from '@mui/joy/Typography';
 import Button from '@mui/joy/Button';
 import Stack from '@mui/joy/Stack';
 // import Card from '@mui/joy/Card';
+import Box from '@mui/material/Box';
 import CircularProgress from '@mui/joy/CircularProgress';
+import styles from './QuestionsForm.module.scss';
 
 const QuestionsForm = ({ onHandleSubmit }) => {
   const [questions, setQuestions] = useState([]);
@@ -102,7 +105,16 @@ const QuestionsForm = ({ onHandleSubmit }) => {
 
   if (loading) {
     // Display a loading indicator while fetching data
-    return <CircularProgress color="success" size="lg" value={31} />;
+    return (
+      <Box
+        className={styles.home}
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center">
+        <CircularProgress classNam color="success" size="lg" value={31} />
+      </Box>
+    );
   }
 
   return (

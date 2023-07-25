@@ -7,7 +7,7 @@ import Button from '@mui/joy/Button';
 import Select from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
 import Box from '@mui/material/Box';
-import inspiredNt_logo_trans from '../../components/Logo/inspiredNt_logo_trans.png';
+import inspiredNt_logo_trans from '../../components/Logo/inspiredNt_logo_trans-resize-removebg-preview.png';
 import styles from './Quiz.module.scss';
 
 const universities = [
@@ -68,12 +68,7 @@ const Quiz = () => {
   };
 
   return (
-    <Box
-      className={styles.home}
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center">
+    <Box className={styles.home} display="flex" flexDirection="column" alignItems="center">
       {!gameStarted && (
         <Box
           display="flex"
@@ -82,10 +77,7 @@ const Quiz = () => {
           justifyContent="center"
           height="50vh">
           <img src={inspiredNt_logo_trans} alt="Logo" className={styles.quizImage} />
-
-          <div>
-            <h1 className={styles.mainTitle}>Science Quiz</h1>
-          </div>
+          <h1 className={styles.mainTitle}>Science Quiz</h1>
           <Input
             label="Name"
             placeholder="Full Name"
@@ -113,7 +105,7 @@ const Quiz = () => {
             onChange={handleUniversityChange}
             variant="outlined">
             <Option value="" disabled>
-              <em>Select University</em>
+              <em>Select School</em>
             </Option>
             {universities.map((uni) => (
               <Option key={uni} value={uni}>
