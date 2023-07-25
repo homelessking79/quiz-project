@@ -1,14 +1,14 @@
 import React from 'react';
 import LeaderboardTable from './components/LeaderboardTable';
 import styles from './Leaderboard.module.scss';
-import Sheet from '@mui/joy/Sheet';
+import Paper from '@mui/material/Paper';
 
 const Leaderboard = () => {
   return (
-    <Sheet className={styles.home}>
+    <Paper elevation={0} className={styles.home}>
       <h3 className={styles.mainTitle}>LEADERBOARD</h3>
       <LeaderboardTable />
-    </Sheet>
+    </Paper>
   );
 };
 

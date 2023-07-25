@@ -52,15 +52,17 @@ const Review = () => {
             {currentQuestionIndex + 1} / {questions.length}
           </Typography>
         </Stack>
-        {questions.length > 0 && (
-          <Question
-            question={questions[currentQuestionIndex]}
-            answer={userAnswers} // Pass the answer as a prop
-            x={200}
-            rotateY={0}
-            systemAnswer={systemAnswers}
-          />
-        )}
+        <div className={styles.questionFormButton}>
+          {questions.length > 0 && (
+            <Question
+              question={questions[currentQuestionIndex]}
+              answer={userAnswers} // Pass the answer as a prop
+              x={200}
+              rotateY={0}
+              systemAnswer={systemAnswers}
+            />
+          )}
+        </div>
         <Stack sx={{ display: 'flex', justifyContent: 'center' }} direction="row" spacing={8}>
           <Button
             sx={{

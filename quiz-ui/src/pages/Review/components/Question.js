@@ -6,10 +6,10 @@ import AspectRatio from '@mui/joy/AspectRatio';
 import Radio from '@mui/joy/Radio';
 import RadioGroup from '@mui/joy/RadioGroup';
 import List from '@mui/joy/List';
-import Sheet from '@mui/joy/Sheet';
 import ListItem from '@mui/joy/ListItem';
 import Card from '@mui/joy/Card';
 // import Box from '@mui/joy/Box';
+import Paper from '@mui/material/Paper';
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
 
@@ -30,7 +30,7 @@ export default function Question({ question, onSelectedOption, answer, x, rotate
   // console.log(question?.options[systemAnswer[question.id]]);
 
   return (
-    <Sheet variant="plain">
+    <Paper elevation={0}>
       <AnimatePresence mode="wait">
         <motion.div
           key={question.id} // Use a unique key for each question
@@ -87,7 +87,7 @@ export default function Question({ question, onSelectedOption, answer, x, rotate
           </Card>
         </motion.div>
       </AnimatePresence>
-    </Sheet>
+    </Paper>
   );
 }
 

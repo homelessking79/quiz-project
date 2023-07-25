@@ -119,17 +119,19 @@ const QuestionsForm = ({ onHandleSubmit }) => {
         </Typography>
       </Stack>
       <form onSubmit={handleSubmit}>
-        {questionsLoaded && questions.length > 0 && (
-          <Question
-            question={questions[currentQuestionIndex]}
-            onSelectedOption={(answer, answerIndex) =>
-              handleAnswerChange(questions[currentQuestionIndex].id, answer, answerIndex)
-            }
-            answer={answers} // Pass the answer as a prop
-            x={x}
-            rotateY={rotateY}
-          />
-        )}
+        <div className="question-form-button">
+          {questionsLoaded && questions.length > 0 && (
+            <Question
+              question={questions[currentQuestionIndex]}
+              onSelectedOption={(answer, answerIndex) =>
+                handleAnswerChange(questions[currentQuestionIndex].id, answer, answerIndex)
+              }
+              answer={answers} // Pass the answer as a prop
+              x={x}
+              rotateY={rotateY}
+            />
+          )}
+        </div>
         <Stack sx={{ display: 'flex', justifyContent: 'center' }} direction="row" spacing={8}>
           <Button
             sx={{
