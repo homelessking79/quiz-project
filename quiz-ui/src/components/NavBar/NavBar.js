@@ -48,7 +48,7 @@ const NavBar = () => {
               </svg>
             </button>
             <div className={isNavExpanded ? 'navigation-menu expanded' : 'navigation-menu'}>
-              <ul style={{marginTop: '7px'}}>
+              <ul style={{ marginTop: '7px' }}>
                 <li>
                   <Link
                     onClick={() => {
