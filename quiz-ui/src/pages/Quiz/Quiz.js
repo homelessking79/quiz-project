@@ -6,11 +6,11 @@ import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 // import Select from '@mui/joy/Select';
 // import Option from '@mui/joy/Option';
-import Box from '@mui/material/Box';
+import Box from '@mui/joy/Box';
 import inspiredNt_logo_trans from '../../components/Logo/inspiredNt_logo_trans-resize-removebg-preview.png';
 import styles from './Quiz.module.scss';
 import Autocomplete from '@mui/joy/Autocomplete';
-import { createFilterOptions } from '@mui/material/Autocomplete';
+// import { createFilterOptions } from '@mui/material/Autocomplete';
 
 const universities = [
   'Alawa Primary School',
@@ -125,8 +125,8 @@ const universities = [
   'Wugularr School'
 ];
 
-const OPTIONS_LIMIT = 10;
-const defaultFilterOptions = createFilterOptions();
+// const OPTIONS_LIMIT = 100;
+// const defaultFilterOptions = createFilterOptions();
 
 const Quiz = () => {
   const [gameStarted, setGameStarted] = useState(false);
@@ -178,9 +178,9 @@ const Quiz = () => {
     postResult();
   };
 
-  const filterOptions = (options, state) => {
-    return defaultFilterOptions(options, state).slice(0, OPTIONS_LIMIT);
-  };
+  // const filterOptions = (options, state) => {
+  //   return defaultFilterOptions(options, state).slice(0, OPTIONS_LIMIT);
+  // };
 
   return (
     <Box className={styles.home} display="flex" flexDirection="column" alignItems="center">
@@ -211,7 +211,7 @@ const Quiz = () => {
             placeholder="Select School"
             onChange={handleUniversityChange}
             options={universities}
-            filterOptions={filterOptions}
+            // filterOptions={filterOptions}
             sx={{
               marginBottom: '16px',
               width: '300px',
