@@ -6,6 +6,7 @@ import Button from '@mui/joy/Button';
 import Stack from '@mui/joy/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/joy/Typography';
+import { useNavigate } from 'react-router-dom';
 import styles from './Review.module.scss';
 
 const Review = () => {
@@ -14,6 +15,7 @@ const Review = () => {
   const questions = location.state.questions;
   const userAnswers = result?.data?.result[0] || {}; // can empty, object type
   const systemAnswers = result?.data?.systemAnswers || {};
+  const navigate = useNavigate();
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isPageChanged, setIsPageChanged] = useState(false);
@@ -21,6 +23,13 @@ const Review = () => {
   // console.log(result);
   // console.log(userAnswers);
   // console.log(systemAnswers);
+
+  const handleGoToLeaderboard = () => {
+    navigate('/Leaderboard');
+  };
+  const handleRetry = () => {
+    navigate('/Quiz');
+  };
 
   async function handleNextQuestion() {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
@@ -88,6 +97,31 @@ const Review = () => {
               Next
             </Button>
           )}
+        </Stack>
+        <Stack
+          sx={{ display: 'flex', justifyContent: 'center', marginTop: 2 }}
+          direction="row"
+          spacing={2}>
+          <Button
+            sx={{
+              width: 150
+            }}
+            color="warning"
+            variant="solid"
+            size="md"
+            onClick={handleRetry}>
+            Retry
+          </Button>
+          <Button
+            sx={{
+              width: 150
+            }}
+            color="warning"
+            variant="solid"
+            size="md"
+            onClick={handleGoToLeaderboard}>
+            Leaderboard
+          </Button>
         </Stack>
       </div>
     </Box>
