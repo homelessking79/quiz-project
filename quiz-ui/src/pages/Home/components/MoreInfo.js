@@ -66,6 +66,13 @@ const MoreInfo = () => {
   );
   return (
     <Grid>
+      <Typography
+        variant="h3"
+        color="#a3826c"
+        sx={{ display: 'flex', justifyContent: 'center', mb: 3, mt: 3 }}>
+        {' '}
+        National Science Week
+      </Typography>
       <CardUtil
         title="About Science Week in the NT"
         image="https://images.squarespace-cdn.com/content/v1/5e7edd655234e75594647807/bbc71afb-3606-40b6-b625-86228750b672/2023+Science+Week+Program+-+special+events+-+public+%281%29.png"

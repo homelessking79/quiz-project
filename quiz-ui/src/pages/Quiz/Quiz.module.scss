@@ -25,9 +25,13 @@
   100% {background: $background-transition-color-orange;}
 }
 
+.colorContent {
+  color: $color-white;
+}
+
 .quizImage {
   width: 200px;
   height: 180px;
-  padding-top: 6rem;
+  margin-top: 10rem;
 }
 
