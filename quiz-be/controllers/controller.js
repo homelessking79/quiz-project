@@ -80,7 +80,7 @@ async function calculatePoint(answers, time) {
     systemAnswers[questionId] = correctAnswer;
   })
 
-  const points = trueCount * time;
+  const points = trueCount ? (trueCount * 100 +  time ) : 0;
   return { points, systemAnswers };
 }
 
