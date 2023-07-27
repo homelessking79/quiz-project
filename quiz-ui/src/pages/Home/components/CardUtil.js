@@ -7,9 +7,8 @@ import { Box } from '@mui/material';
 
 const CardUtil = ({ title, content, image }) => {
   return (
-    <Box
-      component="more-info">
-      <Container maxWidth="xl" style={{marginTop: '20px', marginBottom: '20px'}}>
+    <Box component="more-info">
+      <Container maxWidth="xl" style={{ marginTop: '20px', marginBottom: '20px' }}>
         <Grid container spacing={5}>
           <Grid item xs={12} sm={6}>
             <Typography
@@ -20,19 +19,10 @@ const CardUtil = ({ title, content, image }) => {
               fontSize="calc(1.6 * 1rem)">
               {title}
             </Typography>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              marginBottom="1rem"
-              fontSize="calc(0.9 * 1rem)">
-              {content}
-            </Typography>
+            <div>{content}</div>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <img
-              width='100%'
-              src={image}>
-            </img>
+            <img width="100%" src={image}></img>
           </Grid>
         </Grid>
       </Container>
@@ -42,7 +32,7 @@ const CardUtil = ({ title, content, image }) => {
 
 CardUtil.propTypes = {
   title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  content: PropTypes.element.isRequired,
   image: PropTypes.string.isRequired
 };
 
