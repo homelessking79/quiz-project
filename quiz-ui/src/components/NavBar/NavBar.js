@@ -25,7 +25,8 @@ const NavBar = () => {
             src="https://images.squarespace-cdn.com/content/v1/5e7edd655234e75594647807/1586498728796-Q9USRXPO6FFZOCYXAD57/Screen+Shot+2020-04-10+at+3.35.11+pm.png?format=1500w"
             alt="Logo"
             onClick={handleImageClick}
-            style={{ margin: 'auto', width: '10%' }}
+            className='logo'
+            style={{ margin: 'auto'}}
           />
         </div>
         <div style={{ display: 'flex' }}>

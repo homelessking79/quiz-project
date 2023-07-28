@@ -82,6 +82,16 @@
   text-transform: capitalize;
 }
 
+.logo {
+  width: 10%;
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 50%;
+  }
+}
+
 .hamburger {
   /* removes default border on button element */
   border: 0;
