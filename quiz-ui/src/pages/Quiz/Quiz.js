@@ -7,7 +7,6 @@ import Button from '@mui/joy/Button';
 // import Select from '@mui/joy/Select';
 // import Option from '@mui/joy/Option';
 import Box from '@mui/joy/Box';
-import inspiredNt_logo_trans from '../../components/Logo/inspiredNt_logo_trans-resize-removebg-preview.png';
 import styles from './Quiz.module.scss';
 import Autocomplete from '@mui/joy/Autocomplete';
 import Typography from '@mui/joy/Typography';
@@ -178,17 +177,17 @@ const Quiz = () => {
           flexDirection="column"
           alignItems="center"
           justifyContent="center"
-          height="50vh">
-          <img src={inspiredNt_logo_trans} alt="Logo" className={styles.quizImage} />
+          >
+          <h1 className={styles.mainTitle}>National</h1>
           <h1 className={styles.mainTitle}>Science Quiz</h1>
-          <Box sx={{ mt: 1, mb: 5, minWidth: 100, maxWidth: 400 }}>
+          <Box sx={{ mt: 1, mb: 5, ml: 2, mr: 2, minWidth: 100, maxWidth: 400 }}>
             <Typography className={styles.colorContent} level="h6">
               {' '}
-              {`\u2022 20 minutes. 20 random questions. 100 points each question.`}
+              {`✧ 20 minutes. 20 random questions. 100 points each question.`}
             </Typography>
             <Typography className={styles.colorContent} level="h6">
               {' '}
-              {`\u2022 The sooner you complete , the more bonus point you get (must have at least 1 correct answer)`}
+              {`✧ The sooner you complete, the more bonus point you get (must have at least 1 correct answer)`}
             </Typography>
           </Box>
           <Input
@@ -239,7 +238,7 @@ const Quiz = () => {
             ))}
           </Select> */}
 
-          <Button sx={{ marginTop: '16px' }} variant="solid" onClick={handleStartGame}>
+          <Button sx={{ marginTop: '16px', marginBottom: '40px' }} variant="solid" onClick={handleStartGame}>
             Start Game
           </Button>
         </Box>
