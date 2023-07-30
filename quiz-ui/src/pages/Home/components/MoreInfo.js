@@ -69,7 +69,7 @@ const MoreInfo = () => {
       <Typography
         variant="h3"
         color="#a3826c"
-        sx={{ display: 'flex', justifyContent: 'center', mb: 3, mt: 3 }}>
+        sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center', mb: 3, mt: 3 }}>
         {' '}
         National Science Week
       </Typography>

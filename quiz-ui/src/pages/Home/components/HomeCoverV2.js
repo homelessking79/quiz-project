@@ -26,16 +26,19 @@ export default function HomeCoverV2() {
   };
 
   return (
-    <BannerContainer>
+    <BannerContainer sx={{background: "none", padding: "20px 0" }}>
       <BannerContent>
-        <Typography level="h6" fontWeight="lg" color="success" sx={{ mb: 3 }}>
+        <Typography level="h6" fontWeight="lg" sx={{ mb: 3, color:"#A3826C" }}>
           National Science Quiz
         </Typography>
-        <Typography level="h3" color="primary" sx={{ mb: 5 }}>
+        <Typography level="h3" color="primary" sx={{ mb: 5, color:"#4E83CC" }}>
           Inspired NT Quiz Game!
         </Typography>
 
-        <BannerDescription variant="subtitle">
+        <BannerDescription 
+          variant="subtitle" 
+          sx={{fontFamily: "InterVariable,sans-serif" }}
+        >
           Explore the Wonders of Science Down Under! Unveiled by <strong>Inspired NT</strong>, this
           engaging quiz game immerses kids in the wonders of Australian general science,
           particularly in the Northern Territory. With <strong>20 random questions</strong> pulled
