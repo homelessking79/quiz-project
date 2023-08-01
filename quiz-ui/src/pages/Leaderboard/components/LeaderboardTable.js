@@ -123,7 +123,7 @@ const LeaderboardTable = () => {
                 color: '#fff',
                 fontSize: '17px !important'
               }}>
-              University
+              School / Organisation
             </TableCell>
             <TableCell
               align="left"

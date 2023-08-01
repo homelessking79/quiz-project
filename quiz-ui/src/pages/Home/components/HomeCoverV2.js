@@ -26,26 +26,20 @@ export default function HomeCoverV2() {
   };
 
   return (
-    <BannerContainer sx={{background: "none", padding: "20px 0" }}>
+    <BannerContainer sx={{ background: 'none', padding: '20px 0' }}>
       <BannerContent>
-        <Typography level="h6" fontWeight="lg" sx={{ mb: 3, color:"#A3826C" }}>
+        <Typography level="h6" fontWeight="lg" sx={{ mb: 3, color: '#A3826C' }}>
           National Science Quiz
         </Typography>
-        <Typography level="h3" color="primary" sx={{ mb: 5, color:"#4E83CC" }}>
+        <Typography level="h3" color="primary" sx={{ mb: 5, color: '#4E83CC' }}>
           Inspired NT Quiz Game!
         </Typography>
 
-        <BannerDescription 
-          variant="subtitle" 
-          sx={{fontFamily: "InterVariable,sans-serif" }}
-        >
-          Explore the Wonders of Science Down Under! Unveiled by <strong>Inspired NT</strong>, this
-          engaging quiz game immerses kids in the wonders of Australian general science,
-          particularly in the Northern Territory. With <strong>20 random questions</strong> pulled
-          from an expansive collection, each
-          <strong> correct answer </strong>boosts your score by <strong>100 points!</strong> The
-          faster you finish the quiz, the more bonus points you earn. Start your adventure now,
-          learn fascinating facts and rack up those points!
+        <BannerDescription variant="subtitle" sx={{ fontFamily: 'InterVariable,sans-serif' }}>
+          The Inspired NT STEM (Science, technology, Engineering, and Math) Quiz is here to test
+          your knowledge on all things STEM in the Territory. Compete with your classmates and
+          friends and maybe learn something new! Each question hass been tailored by local
+          scientists to get your brain buzzing.
         </BannerDescription>
 
         <Button
