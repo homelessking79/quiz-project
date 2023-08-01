@@ -76,6 +76,7 @@ export default function Question({ question, onSelectedOption, answer, x, rotate
                       }}>
                       <Radio
                         // overlay
+                        sx={{ flexGrow: 1, textAlign: 'left' }}
                         value={q}
                         label={q}
                       />

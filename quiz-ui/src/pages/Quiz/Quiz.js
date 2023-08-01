@@ -131,17 +131,17 @@ const Quiz = () => {
   };
 
   const handleStartGame = () => {
-    if (name && university) {
+    if (name) {
       setGameStarted(true);
     } else {
-      alert('Please enter your name and university.');
+      alert('Please enter your name.');
     }
   };
 
   const onHandleSubmit = (timeRemaining, answers, questions) => {
     const data = {
       username: name,
-      university: university,
+      university: university || 'none',
       time: timeRemaining,
       answers: answers
     };
@@ -172,12 +172,7 @@ const Quiz = () => {
   return (
     <Box className={styles.home} display="flex" flexDirection="column" alignItems="center">
       {!gameStarted && (
-        <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-          >
+        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center">
           <h1 className={styles.mainTitle}>National</h1>
           <h1 className={styles.mainTitle}>Science Quiz</h1>
           <Box sx={{ mt: 1, mb: 5, ml: 2, mr: 2, minWidth: 100, maxWidth: 400 }}>
@@ -205,7 +200,7 @@ const Quiz = () => {
             }}
           />
           <Autocomplete
-            placeholder="Select School"
+            placeholder="School / Organisation'"
             onChange={handleUniversityChange}
             options={universities}
             // filterOptions={filterOptions}
@@ -215,6 +210,7 @@ const Quiz = () => {
               backgroundColor: '#fff'
             }}
             size="lg"
+            required={false}
           />
           {/* <Select
             sx={{
@@ -238,7 +234,10 @@ const Quiz = () => {
             ))}
           </Select> */}
 
-          <Button sx={{ marginTop: '16px', marginBottom: '40px' }} variant="solid" onClick={handleStartGame}>
+          <Button
+            sx={{ marginTop: '16px', marginBottom: '40px' }}
+            variant="solid"
+            onClick={handleStartGame}>
             Start Game
           </Button>
         </Box>

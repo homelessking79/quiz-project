@@ -61,6 +61,7 @@ export default function Question({ question, onSelectedOption, answer, x, rotate
                         overlay
                         value={q}
                         label={q}
+                        sx={{ flexGrow: 1, textAlign: 'left' }}
                         slotProps={{
                           action: ({ checked }) => ({
                             sx: (theme) => ({

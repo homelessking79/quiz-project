@@ -29,17 +29,6 @@ export default function Footer() {
       }}>
       <Container maxWidth="lg">
         <Grid container spacing={1}>
-          <Typography
-            variant="body2"
-            color="#a3826c"
-            gutterBottom
-            marginBottom="1.5rem"
-            align="center">
-            Inspired NT respectfully acknowledge the Traditional Custodians of the lands on which we
-            work, play, experiment, and learn. We value their legacy as the first scientists and
-            their continued connection to this country. We pay our respects to elders past, present,
-            and emerging. We extend this respect to all Aboriginal and Torres Strait people.
-          </Typography>
           <Grid item xs={12} sm={7}>
             <Typography
               variant="h6"
@@ -101,12 +90,23 @@ export default function Footer() {
             </Link>
           </Grid>
         </Grid>
-        <Box mt={5}>
+        <Box mt={5} mb={2}>
           <Typography variant="body2" color="text.secondary" align="center">
             {'©Copyright Inspired NT '}
             {new Date().getFullYear()}
           </Typography>
         </Box>
+        <Typography
+          variant="h6"
+          color="text.secondary"
+          gutterBottom
+          marginBottom="1.5rem"
+          align="center">
+          Inspired NT respectfully acknowledge the Traditional Custodians of the lands on which we
+          work, play, experiment, and learn. We value their legacy as the first scientists and their
+          continued connection to this country. We pay our respects to elders past, present, and
+          emerging. We extend this respect to all Aboriginal and Torres Strait people.
+        </Typography>
       </Container>
     </Box>
   );
