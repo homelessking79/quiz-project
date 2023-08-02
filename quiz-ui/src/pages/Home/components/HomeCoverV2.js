@@ -14,6 +14,7 @@ import {
 import Banner from '../../../components/Logo/home_banner.png';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Typography from '@mui/joy/Typography';
+import { Grid } from '@mui/material';
 
 export default function HomeCoverV2() {
   const theme = useTheme();
@@ -26,7 +27,7 @@ export default function HomeCoverV2() {
   };
 
   return (
-    <BannerContainer sx={{ background: 'none', padding: '20px 0' }}>
+    <BannerContainer sx={{ background: 'none' }}>
       <BannerContent>
         <Typography level="h6" fontWeight="lg" sx={{ mb: 3, color: '#A3826C' }}>
           National Science Quiz

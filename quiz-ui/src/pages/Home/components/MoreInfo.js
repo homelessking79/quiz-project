@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Grid } from '@mui/material';
 import CardUtil from './CardUtil';
 import { Box, Typography, Link } from '@mui/material';
+import Sponsor from '../../../components/Logo/sponsor.png';
 
 const MoreInfo = () => {
   const content1 = (
@@ -66,6 +67,16 @@ const MoreInfo = () => {
   );
   return (
     <Grid>
+      <Typography
+        variant="h3"
+        color="#a3826c"
+        sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center', mb: 3, mt: 3 }}>
+        {' '}
+        The Inspired NT Quiz is proudly sponsored by
+      </Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center', mb: 3, mt: 3 }}>
+        <img width="60%" style={{ margin: 'auto' }} src={Sponsor}></img>
+      </Box>
       <Typography
         variant="h3"
         color="#a3826c"
