@@ -8,109 +8,12 @@ import Button from '@mui/joy/Button';
 // import Option from '@mui/joy/Option';
 import Box from '@mui/joy/Box';
 import styles from './Quiz.module.scss';
-import Autocomplete from '@mui/joy/Autocomplete';
+// import Autocomplete from '@mui/joy/Autocomplete';
 import Typography from '@mui/joy/Typography';
 // import Modal from '@mui/joy/Modal';
 // import ModalClose from '@mui/joy/ModalClose';
 // import Sheet from '@mui/joy/Sheet';
 // import { createFilterOptions } from '@mui/material/Autocomplete';
-
-const universities = [
-  'Alawa Primary School',
-  'Alekarenge School',
-  'Alice Springs School of the Air',
-  'Alyangula Area School',
-  'Ampilatwatja School',
-  'Anula Primary School',
-  'Areyonga School',
-  'Arlparra School',
-  'Bakewell Primary School',
-  'Barunga School',
-  'Batchelor Area School',
-  'Bees Creek Primary School',
-  'Belyuen School',
-  'Berry Springs Primary School',
-  'Borroloola School',
-  'Bradshaw Primary School',
-  'Braitling Primary School',
-  'Bulman School',
-  'Casuarina Senior College',
-  'Casuarina Street Primary School',
-  'Centralian Middle School',
-  'Centralian Senior College',
-  'Clyde Fenton Primary School',
-  'Darwin High School',
-  'Darwin Middle School',
-  'Dripstone Middle School',
-  'Driver Primary School',
-  'Durack Primary School',
-  'Elliott School',
-  'Gapuwiyak School',
-  'Gawa Christian School',
-  'Gillen Primary School',
-  'Girraween Primary School',
-  'Gray Primary School',
-  'Gunbalanya School',
-  'Howard Springs Primary School',
-  'Humpty Doo Primary School',
-  'Imanpa School',
-  'Jilkminggan School',
-  'Jingili Primary School',
-  'Kalkaringi School',
-  'Karama Primary School',
-  'Katherine High School',
-  'Katherine South Primary School',
-  'Lajamanu School',
-  'Larapinta Primary School',
-  'Larrakeyah Primary School',
-  'Laynhapuy Homelands School',
-  'Leanyer Primary School',
-  'Ltyentye Apurte Catholic School',
-  'Ludmilla Primary School',
-  'MacFarlane Primary School',
-  'Malak Primary School',
-  'Maningrida School',
-  'Manunda Terrace Primary School',
-  'Milingimbi School',
-  'Millner Primary School',
-  'Minyerri School',
-  'Moil Primary School',
-  'Moulden Park Primary School',
-  'Mungkarta School',
-  'Murray Downs School',
-  'Nakara Primary School',
-  'Nganmarriyanga School',
-  'Nhulunbuy High School',
-  'Nhulunbuy Primary School',
-  'Nightcliff Middle School',
-  'Nightcliff Primary School',
-  'Numbulwar School',
-  'Nyangatjatjara College',
-  'Palmerston College',
-  'Parap Primary School',
-  'Remote Schools:',
-  'Rockhampton Downs School',
-  'Ross Park Primary School',
-  'Sadadeen Primary School',
-  'Sanderson Middle School',
-  'Santa Teresa School',
-  'Shepherdson College',
-  'Stuart Park Primary School',
-  'Taminmin College',
-  'Tennant Creek High School',
-  'Tennant Creek Primary School',
-  'Umbakumba School',
-  'Urapunga School',
-  'Wagaman Primary School',
-  'Wanguri Primary School',
-  'Warruwi School',
-  'Woodroffe Primary School',
-  'Woolaning School',
-  'Wugularr School',
-  'Wulagi Primary School',
-  'Yirrkala School',
-  'Yuendumu School'
-];
 
 // const OPTIONS_LIMIT = 100;
 // const defaultFilterOptions = createFilterOptions();
@@ -126,8 +29,8 @@ const Quiz = () => {
     setName(event.target.value);
   };
 
-  const handleUniversityChange = (event, newValue) => {
-    setUniversity(newValue);
+  const handleUniversityChange = (event) => {
+    setUniversity(event.target.value);
   };
 
   const handleStartGame = () => {
@@ -141,7 +44,7 @@ const Quiz = () => {
   const onHandleSubmit = (timeRemaining, answers, questions) => {
     const data = {
       username: name,
-      university: university || 'none',
+      university: university || 'N/A',
       time: timeRemaining,
       answers: answers
     };
@@ -199,8 +102,22 @@ const Quiz = () => {
               backgroundColor: '#fff'
             }}
           />
-          <Autocomplete
-            placeholder="School / Organisation'"
+          <Input
+            label="School / Organisation"
+            placeholder="School / Organisation"
+            value={university}
+            onChange={handleUniversityChange}
+            variant="outlined"
+            required={false}
+            size="lg"
+            sx={{
+              marginBottom: '16px',
+              width: '300px',
+              backgroundColor: '#fff'
+            }}
+          />
+          {/* <Autocomplete
+            placeholder="School / Organisation"
             onChange={handleUniversityChange}
             options={universities}
             // filterOptions={filterOptions}
@@ -211,7 +128,7 @@ const Quiz = () => {
             }}
             size="lg"
             required={false}
-          />
+          /> */}
           {/* <Select
             sx={{
               marginBottom: '16px',
