@@ -3,6 +3,10 @@ import { Grid } from '@mui/material';
 import CardUtil from './CardUtil';
 import { Box, Typography, Link } from '@mui/material';
 import Sponsor from '../../../components/Logo/sponsor.png';
+import img1 from '../../../components/Images/img1_nationalscienceweek2023.png';
+import img2 from '../../../components/Images/img2_nationalscienceweek2023ntsponsors.png';
+import img3 from '../../../components/Images/img3_affairforaustralia.jpg';
+import img4 from '../../../components/Images/img4_groupmeeting.jpg';
 
 const MoreInfo = () => {
   const content1 = (
@@ -86,7 +90,7 @@ const MoreInfo = () => {
       </Typography>
       <CardUtil
         title="About Science Week in the NT"
-        image="https://images.squarespace-cdn.com/content/v1/5e7edd655234e75594647807/bbc71afb-3606-40b6-b625-86228750b672/2023+Science+Week+Program+-+special+events+-+public+%281%29.png"
+        image={img1}
         content={content1}
       />
 
@@ -94,18 +98,18 @@ const MoreInfo = () => {
         <img
           width="75%"
           style={{ margin: 'auto' }}
-          src="https://images.squarespace-cdn.com/content/v1/5e7edd655234e75594647807/bd9dcfbe-9637-487d-868a-0d1b32bcc771/SCIENCE+WEEK+SPONSORS+banner+thin.png"></img>
+          src={img2}></img>
       </Box>
 
       <CardUtil
         title="Get Involved"
-        image="https://images.squarespace-cdn.com/content/v1/5e7edd655234e75594647807/1585982031988-LOU4C0D0XNC5QVBWN6IR/DSC_3387.jpg"
+        image={img3}
         content={content2}
       />
 
       <CardUtil
         title="National Science Week Committee"
-        image="https://images.squarespace-cdn.com/content/v1/5e7edd655234e75594647807/1591417431889-8GJ7C3PCDK6OZS168BDV/2019-09-26+10.53.32.jpg"
+        image={img4}
         content={content3}
       />
     </Grid>
