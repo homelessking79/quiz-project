@@ -12,6 +12,7 @@ import ListItem from '@mui/joy/ListItem';
 import Card from '@mui/joy/Card';
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
+// import Banner from '../../../components/Logo/1.png';
 
 export default function Question({ question, onSelectedOption, answer, x, rotateY }) {
   const handleChange = (event) => {
@@ -37,7 +38,7 @@ export default function Question({ question, onSelectedOption, answer, x, rotate
             <CardOverflow>
               <AspectRatio ratio="2">
                 <img
-                  src={question.imgUrl}
+                  src={`${process.env.PUBLIC_URL}/images/quiz/${question.imgUrl}`}
                   // src="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318"
                   // srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
                   loading="lazy"
