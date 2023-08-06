@@ -1,9 +1,75 @@
 import Questions from "../models/questionSchema.js";
 import Results from "../models/resultSchema.js";
+import AppState from "../models/appStateSchema.js";
 import { questions, answers } from "../database/data.js";
+
+
+function isAdmin(TOKEN_ADMIN) {
+  if (process.env.TOKEN_ADMIN !== TOKEN_ADMIN) {
+    return false;
+  }
+  return true;
+}
+
+/** App State */
+export async function getQuizState(req, res) {
+  try {
+    const r = await AppState.find();
+    res.json(r);
+  } catch (error) {
+    res.json({ error });
+  }
+}
+
+export async function insertQuizState(req, res) {
+  if (!isAdmin(req.body.TOKEN_ADMIN)) {
+    res.status(401).json({ msg: "YOU ARE NOT ADMIN"});
+    return;
+  }
+
+  try {
+    await AppState.insertMany({ 
+      turnOn: req.body.turnOn,
+      turnOff: req.body.turnOff, //high priority
+      startDate: new Date(req.body.startDate),
+      endDate: new Date(req.body.endDate),
+    }).then(function () {
+      res.json({ msg: "App state inserted"});
+    })
+  } catch (error) {
+    res.json({ error });
+  }
+}
+
+
+async function isStartApp() {
+  try {
+    const appState = await AppState.find();
+    if (appState && appState.length > 0) {
+      const {turnOff, turnOn, startDate, endDate} = appState[0];
+      if (turnOff == true) {
+        return false;
+      }
+      if (turnOn == true) {
+        return true;
+      }
+      const currentDate = new Date();
+      if (currentDate >= startDate && currentDate <= endDate) {
+        return true;
+      }
+    }
+  } catch (error) {
+    res.json({ error });
+  }
+  return false;
+}
 
 /** QUESTIONS */
 export async function getQuestions(req, res) {
+  if(! await isStartApp()) {
+    res.status(404).json({ msg: "TOO EARLY OR TOO LATE"});
+    return;
+  }
   try {
     const q = await Questions.find();
     if (q && q.length > 0) {
@@ -35,16 +101,26 @@ function shuffleArray(array) {
 }
 
 export async function insertQuestions(req, res) {
+  if (!isAdmin(req.body.TOKEN_ADMIN)) {
+    res.status(401).json({ msg: "YOU ARE NOT ADMIN"});
+    return;
+  }
   try {
     await Questions.insertMany({ questions: questions, answers }).then(function () {
       res.json({ msg: "Questions inserted"});
     })
   } catch (error) {
-    res.json({ error });
+    // res.json({ error });
+    console.error("Error inserting questions:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 }
 
 export async function deleteQuestions(req, res) {
+  if (!isAdmin(req.body.TOKEN_ADMIN)) {
+    res.status(401).json({ msg: "YOU ARE NOT ADMIN"});
+    return;
+  }
   try {
     await Questions.deleteMany();
     res.json({ msg: "Questions deleted"});
@@ -111,6 +187,10 @@ async function calculateRank(points, time, username) {
 }
 
 export async function storeResult(req, res) {
+  if(! await isStartApp()) {
+    res.status(404).json({ msg: "TOO EARLY OR TOO LATE"});
+    return;
+  }
   try {
     if (!req?.body?.username && !req?.body?.university && !req?.body?.answers) throw new Error('Data not valid ...');
 
@@ -139,6 +219,10 @@ export async function storeResult(req, res) {
 }
 
 export async function deleteResult(req, res) {
+  if (!isAdmin(req.body.TOKEN_ADMIN)) {
+    res.status(401).json({ msg: "YOU ARE NOT ADMIN"});
+    return;
+  }
   try {
     await Results.deleteMany();
     res.json({ msg: "Results deleted"});
