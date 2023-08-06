@@ -39,8 +39,11 @@ export default function Question({ question, onSelectedOption, answer, x, rotate
               <AspectRatio ratio="2">
                 <img
                   // src={`${process.env.PUBLIC_URL}/images/quiz/${question.imgUrl}`}
-                  src={`https://imagedelivery.net/GuOwov7MQf3_QpmVBqSw5A/${question.imgUrl}/public`}
-                  srcSet={`https://imagedelivery.net/GuOwov7MQf3_QpmVBqSw5A/${question.imgUrl}/public`}
+                  // img.inspiredntquiz.net/<img-name></img-name>
+                  src={`https://img.inspiredntquiz.net/${question.imgUrl}`}
+                  srcSet={`https://img.inspiredntquiz.net/${question.imgUrl}`}
+                  // src={`https://imagedelivery.net/GuOwov7MQf3_QpmVBqSw5A/${question.imgUrl}/public`}
+                  // srcSet={`https://imagedelivery.net/GuOwov7MQf3_QpmVBqSw5A/${question.imgUrl}/public`}
                   // src="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318"
                   // srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
                   loading="lazy"
