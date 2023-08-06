@@ -29,10 +29,10 @@ export default function HomeCoverV2() {
   return (
     <BannerContainer sx={{ background: 'none' }}>
       <BannerContent>
-        <Typography level="h6" fontWeight="lg" sx={{ mb: 3, color: '#A3826C' }}>
+        <Typography level="h6" fontWeight="lg" sx={{ mb: 1, color: '#A3826C' }}>
           National Science Quiz
         </Typography>
-        <Typography level="h3" color="primary" sx={{ mb: 5, color: '#4E83CC' }}>
+        <Typography level="h3" color="primary" sx={{ mb: 2, color: '#4E83CC' }}>
           Inspired NT Quiz Game!
         </Typography>
 
