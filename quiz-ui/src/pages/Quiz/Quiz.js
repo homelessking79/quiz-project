@@ -199,11 +199,11 @@ const Quiz = () => {
     if (!loading) {
       if (appState) {
         if (appState.turnOff) {
-          return <>{renderTheTextQuizEnd()};</>;
+          return <>{renderTheTextQuizEnd()}</>;
         }
 
         if (appState.turnOn) {
-          return <>{renderInputForm()};</>;
+          return <>{renderInputForm()}</>;
         }
 
         const currentDate = new Date();
@@ -211,15 +211,15 @@ const Quiz = () => {
         const endDate = new Date(appState.endDate);
 
         if (currentDate >= startDate && currentDate <= endDate) {
-          return <>{renderInputForm()};</>;
+          return <>{renderInputForm()}</>;
         }
 
         if (startDate > currentDate) {
-          return <>{renderTheTextQuizWillStart()};</>;
+          return <>{renderTheTextQuizWillStart()}</>;
         }
 
         if (endDate < currentDate) {
-          return <>{renderTheTextQuizEnd()};</>;
+          return <>{renderTheTextQuizEnd()}</>;
         }
       }
     }
