@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import { Grid } from '@mui/material';
 import CardUtil from './CardUtil';
@@ -72,46 +73,31 @@ const MoreInfo = () => {
   return (
     <Grid>
       <Typography
-        variant="h3"
+        variant="h5"
         color="#a3826c"
         sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center', mb: 3, mt: 3 }}>
         {' '}
         The Inspired NT Quiz is proudly sponsored by
       </Typography>
       <Box sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center', mb: 3, mt: 3 }}>
-        <img width="60%" style={{ margin: 'auto' }} src={Sponsor}></img>
+        <img width="50%" style={{ margin: 'auto' }} src={Sponsor}></img>
       </Box>
-      <Typography
+      {/* <Typography
         variant="h3"
         color="#a3826c"
         sx={{ display: 'flex', justifyContent: 'center', textAlign: 'center', mb: 3, mt: 3 }}>
         {' '}
         National Science Week
       </Typography>
-      <CardUtil
-        title="About Science Week in the NT"
-        image={img1}
-        content={content1}
-      />
+      <CardUtil title="About Science Week in the NT" image={img1} content={content1} />
 
       <Box mt={5} display="flex">
-        <img
-          width="75%"
-          style={{ margin: 'auto' }}
-          src={img2}></img>
+        <img width="75%" style={{ margin: 'auto' }} src={img2}></img>
       </Box>
 
-      <CardUtil
-        title="Get Involved"
-        image={img3}
-        content={content2}
-      />
+      <CardUtil title="Get Involved" image={img3} content={content2} />
 
-      <CardUtil
-        title="National Science Week Committee"
-        image={img4}
-        content={content3}
-      />
+      <CardUtil title="National Science Week Committee" image={img4} content={content3} /> */}
     </Grid>
   );
 };

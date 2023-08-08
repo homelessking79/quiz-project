@@ -117,6 +117,13 @@ const QuestionsForm = ({ onHandleSubmit }) => {
     );
   }
 
+  const isNoAnswer = (index) => {
+    if (!answers[index]) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <div className="quiz-container">
       <Typography textColor="#FFA500" level="h5" noWrap={false} variant="plain">
@@ -164,7 +171,11 @@ const QuestionsForm = ({ onHandleSubmit }) => {
               type="submit"
               variant="solid"
               color="warning"
-              disabled={currentQuestionIndex != questions.length - 1 || isPageChanged}>
+              disabled={
+                currentQuestionIndex != questions.length - 1 ||
+                isPageChanged ||
+                isNoAnswer(questions[currentQuestionIndex].id)
+              }>
               Submit
             </Button>
           )}
@@ -177,7 +188,11 @@ const QuestionsForm = ({ onHandleSubmit }) => {
               variant="solid"
               size="md"
               onClick={handleNextQuestion}
-              disabled={currentQuestionIndex === questions.length - 1 || isPageChanged}>
+              disabled={
+                currentQuestionIndex === questions.length - 1 ||
+                isPageChanged ||
+                isNoAnswer(questions[currentQuestionIndex].id)
+              }>
               Next
             </Button>
           )}

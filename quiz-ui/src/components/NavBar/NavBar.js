@@ -25,8 +25,8 @@ const NavBar = () => {
             src="https://images.squarespace-cdn.com/content/v1/5e7edd655234e75594647807/1586498728796-Q9USRXPO6FFZOCYXAD57/Screen+Shot+2020-04-10+at+3.35.11+pm.png?format=1500w"
             alt="Logo"
             onClick={handleImageClick}
-            className='logo'
-            style={{ margin: 'auto'}}
+            className="logo"
+            style={{ margin: 'auto' }}
           />
         </div>
         <div style={{ display: 'flex' }}>
@@ -59,7 +59,7 @@ const NavBar = () => {
                     className={location.pathname === '/Home' ? 'nav-active' : 'nav-non-active'}>
                     <div>
                       {' '}
-                      <FlutterDashIcon />
+                      <FlutterDashIcon fontSize="large" />
                     </div>
                     <div className="nav-text-icon hover-underline-animation">Home</div>
                   </Link>
@@ -73,7 +73,7 @@ const NavBar = () => {
                     className={location.pathname === '/Quiz' ? 'nav-active' : 'nav-non-active'}>
                     <div>
                       {' '}
-                      <ScienceIcon />
+                      <ScienceIcon fontSize="large" />
                     </div>
                     <div className="nav-text-icon hover-underline-animation">Quiz</div>
                   </Link>
@@ -89,7 +89,7 @@ const NavBar = () => {
                     }>
                     <div>
                       {' '}
-                      <DashboardIcon />
+                      <DashboardIcon fontSize="large" />
                     </div>
                     <div className="nav-text-icon hover-underline-animation">Leaderboard</div>
                   </Link>

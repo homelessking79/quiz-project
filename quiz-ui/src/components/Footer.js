@@ -3,7 +3,8 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
-import { Facebook, Instagram, Twitter } from '@mui/icons-material';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Facebook } from '@mui/icons-material';
 import { Box } from '@mui/material';
 
 export default function Footer() {
@@ -11,12 +12,16 @@ export default function Footer() {
     window.open('https://www.facebook.com/InspiringNT/', '_blank');
   }
 
-  function openTwitter() {
-    window.open('https://twitter.com/inspiringNT/', '_blank');
-  }
+  // function openTwitter() {
+  //   window.open('https://twitter.com/inspiringNT/', '_blank');
+  // }
 
-  function openInstagram() {
-    window.open('https://www.instagram.com/inspiringnt/', '_blank');
+  // function openInstagram() {
+  //   window.open('https://www.instagram.com/inspiringnt/', '_blank');
+  // }
+
+  function openLinkedIn() {
+    window.open('https://au.linkedin.com/company/inspired-nt', '_blank');
   }
 
   return (
@@ -82,12 +87,30 @@ export default function Footer() {
             <Link href="###" onClick={openFacebook} color="#a3826c">
               <Facebook />
             </Link>
-            <Link href="###" onClick={openTwitter} color="#a3826c" sx={{ pl: 1, pr: 1 }}>
+            {/* <Link href="###" onClick={openTwitter} color="#a3826c" sx={{ pl: 1, pr: 1 }}>
               <Twitter />
+            </Link>{' '} */}
+            <Link href="###" onClick={openLinkedIn} color="#a3826c">
+              <LinkedInIcon />
             </Link>
-            <Link href="###" onClick={openInstagram} color="#a3826c">
-              <Instagram />
-            </Link>
+            <Typography
+              variant="subtitle1"
+              color="#a3826c"
+              gutterBottom
+              marginBottom="1.5rem"
+              fontSize="calc(1.6 * 0.8rem)">
+              <Link
+                href="https://www.inspirednt.net"
+                underline="none"
+                variant="inherit"
+                color="#a3826c"
+                target="_blank"
+                rel="noreferrer">
+                {' '}
+                {'https://www.inspirednt.net'}
+              </Link>
+              {/* {'https://www.inspirednt.net'} */}
+            </Typography>
           </Grid>
         </Grid>
         <Box mt={5} mb={2}>
