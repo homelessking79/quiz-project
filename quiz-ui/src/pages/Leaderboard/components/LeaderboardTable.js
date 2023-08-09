@@ -29,6 +29,7 @@ function TruncatedName(name) {
 
 const LeaderboardTable = () => {
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);
   const rowsPerPage = 10;
   const totalPages =
@@ -43,8 +44,10 @@ const LeaderboardTable = () => {
           `${process.env.REACT_APP_SERVER_HOSTNAME}/api/result`,
           (data) => data
         );
-
-        if (data.length < 1) return;
+        setLoading(false);
+        if (data.length < 1) {
+          return;
+        }
 
         const sortedResults = data.sort((a, b) => {
           if (b.points !== a.points) {
@@ -152,7 +155,7 @@ const LeaderboardTable = () => {
           {!results || results.length === 0 ? (
             <TableRow>
               <TableCell colSpan={5} align="center" sx={{ bgcolor: '#fff' }}>
-                <CircularProgress color="secondary" />
+                {loading ? <CircularProgress color="secondary" /> : 'There is no data to display'}
               </TableCell>
             </TableRow>
           ) : (
