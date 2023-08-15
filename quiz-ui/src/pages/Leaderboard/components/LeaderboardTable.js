@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { getServerData } from '../../../helper/helper';
 import { formatTime } from '../../../components/Util';
@@ -155,7 +156,7 @@ const LeaderboardTable = () => {
           {!results || results.length === 0 ? (
             <TableRow>
               <TableCell colSpan={5} align="center" sx={{ bgcolor: '#fff' }}>
-                {loading ? <CircularProgress color="secondary" /> : 'There is no data to display'}
+                <CircularProgress color="secondary" />
               </TableCell>
             </TableRow>
           ) : (
